@@ -1,0 +1,34 @@
+#The Newton-Raphson method (also known as Newton's method) is a way to quickly find a good approximation for the root of a real-valued function f(x) = 0
+#It uses the idea that a continuous and differentiable function can be approximated by a straight line tangent to it.
+
+fn <- function(x)  
+{  f <- x^3 - 7*x^2 + 14*x - 6
+  return(f)}
+  
+ dfn <- function(x) # Derivada de la funcion para para Newton Raphson
+{  df <- 3*x^2 - 14*x + 14
+  return(df)}
+
+# Newton Raphson Method----
+newton_raphson <- function(p0, tol, n)
+{
+  #Step 1
+  i = 1
+  #Step 2
+  while(i <= n)
+  {
+    #Step 3
+    p = p0 - fn(p0)/dfn(p0)
+    #Step 4
+    if(abs(p - p0) < tol)
+      return(p)
+    #Step 5
+    i = i + 1
+    #Step 6
+    p0 = p
+  }
+  #Step 7
+  return(paste('El metodo fallo luego de ', n, 'iteraciones'))
+}
+
+newton_raphson(2, 0.0001, 850)
