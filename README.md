@@ -1,4 +1,2 @@
-# Metodo-Numerico-para-la-busqueda-de-Raices
-Se verán distintos métodos para la busqueda de raices en RStudio. 
-Los cinco métodos fueron extraídos del libro de Burden y Faires - Analisis Numerico septima edicion.
-Se verán a continuación los algoritmos para: Metodo de Bisección, Newton, Secante, Falsa Posicion y Punto Fijo.
+# Numerical root-finding methods
+Most numerical root-finding methods use iteration, producing a sequence of numbers that hopefully converge towards the root as a limit. They require one or more initial guesses of the root as starting values, then each iteration of the algorithm produces a successively more accurate approximation to the root.
