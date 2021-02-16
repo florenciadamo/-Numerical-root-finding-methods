@@ -1,0 +1,38 @@
+#Fixed-Point
+fn <- function(x) #Funcion 
+{
+  f <- x^3 - 7*x^2 + 14*x - 6
+  return(f)
+}
+
+g <- function(x){ # Funcion g(x) para la iteracion de punto fijo
+  gn <- -(x^3 - 7*x^2 - 6)/14
+  return(gn)
+}
+
+
+punto_fijo <- function(p0,tol,n)
+{
+  #Step 1
+  i = 1
+  #Step 2
+  while(i <= n)
+  {
+    #Step 3
+    p = g(p0)
+    #Step 4
+    if(abs(p-p0) < tol)
+    {
+      return(p)
+    }
+    #Step 5
+    i = i + 1
+    #Step 6
+    p0 = p
+  }
+  #Step 7
+  return(paste('El metodo fallo luego de ', n, 'iteraciones'))
+}
+
+PF = punto_fijo(0.1, 0.0000001, 100000)
+print(PF)
