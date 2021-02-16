@@ -1,0 +1,35 @@
+#Creo la funcion de polinomio
+polinomio = function (x){
+  f = 2*x*cos(2*x)-(x+1)^2
+  return (f)
+}
+
+
+Raiz_Biseccion = function(a,b,Tol,N){ #Tol es nivel de tolerancia y N numero de iteraciones
+  #paso 1 
+  i = 1 
+  FA = polinomio(a)
+  #paso 2
+  while (1 <= N){ #la condicion esta entre parentesis.Se ejecuta mientras 1 sea menor o igual que n.
+    #paso 3
+    p = a + (b-a)/2 #punto medio
+    FP = polinomio (p) #calcular el polinomio en ese puntp p
+    #paso 4
+    if (FP == 0 | (b-a)/2 < Tol ) { #ver si se cumple el nivel de Tol
+      return (p)
+    }
+    #paso 5
+    i = i + 1
+    #paso 6
+    if (FP * FA> 0){
+      a = p #a pasa a ser el punto medio
+      FA = FP #F(a) pasa a ser la imagen de p
+    } else { #si no se cumple
+      b = p #b es el punto medio del intervalo
+    }
+  }
+  #paso 7
+  return (paste("El metodo falló luego de ", N, "iteraciones"))
+}
+
+Raiz_Biseccion(-3,-2,0.000001,1)
