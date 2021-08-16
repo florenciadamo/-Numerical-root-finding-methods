@@ -1,14 +1,9 @@
-#One such method is the Method of False Position. Here, we start with an initial interval [x1,x2], and we assume that the function changes sign
-#only once in this interval. Now we find an x3 in this interval, which is given by the intersection of the x axis and the straight line passing through 
-#(x1,f(x1)) and (x2,f(x2)). 
-#Now, we choose the new interval from the two choices [x1,x3] or [x3,x2] depending on in which interval the function changes sign.
-
-
+# Create a function 
 fn <- function(x) #Funcion 
 {  f <- x^4 - 4*x - 10
 return(f)}
 
-falsa_posicion <- function(p0, p1, tol, n)
+falsa_posicion <- function(p0, p1, tol, n, fn)
 {
   if(fn(p0)*fn(p1) < 0)
   {
@@ -44,5 +39,5 @@ falsa_posicion <- function(p0, p1, tol, n)
   } else 
     return("No se cumple el teorema de bolzano")
 }
-f = falsa_posicion(3.1, 3.0, 0.0001, 100)
+f = falsa_posicion(3.1, 3.0, 0.0001, 100,fn)
 print(f)
