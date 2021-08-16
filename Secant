@@ -1,7 +1,3 @@
-#A root-finding algorithm which assumes a function to be approximately linear in the region of interest. 
-#Each improvement is taken as the point where the approximating line crosses the axis. 
-#The secant method retains only the most recent estimate, so the root does not necessarily remain bracketed
-
 fn <- function(r) #Funcion 
 {
   f = (3200*(1-(1+(r/12))^-88)/(r/12))-180000
