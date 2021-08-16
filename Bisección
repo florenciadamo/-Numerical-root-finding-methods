@@ -1,35 +1,45 @@
-#Create a Fuction
-polinomio = function (x){
-  f = 2*x*cos(2*x)-(x+1)^2
-  return (f)
-}
+#Biseccion
 
-
-Raiz_Biseccion = function(a,b,Tol,N){ #Tol is tolerance level and N number of iterations
+Met_Biseccion = function(a,b,Tol,N){ 
   #Step 1 
   i = 1 
   FA = polinomio(a)
   #Step 2
-  while (1 <= N){ #la condicion esta entre parentesis.Se ejecuta mientras 1 sea menor o igual que n.
+  while (1 <= N){ 
     #Step 3
-    p = a + (b-a)/2 #punto medio
-    FP = polinomio (p) #calcular el polinomio en ese puntp p
+    p = a + (b-a)/2 
+    FP = polinomio (p) 
     #Step 4
-    if (FP == 0 | (b-a)/2 < Tol ) { #ver si se cumple el nivel de Tol
+    if (FP==0 | (b-a)/2 < Tol){
+      p<- c(p,i) #Tira la cantidad de iteraciones
       return (p)
     }
     #Step 5
     i = i + 1
     #Step 6
     if (FP * FA> 0){
-      a = p #a pasa a ser el punto medio
-      FA = FP #F(a) pasa a ser la imagen de p
-    } else { #si no se cumple
-      b = p #b es el punto medio del intervalo
+      a = p 
+      FA = FP 
+    } else { 
+      b = p 
     }
   }
   #Step 7
   return (paste("El metodo falló luego de ", N, "iteraciones"))
 }
 
-Raiz_Biseccion(-3,-2,0.000001,1)
+
+polinomio = function (x){
+  f = x^3+x-4
+  return (f)
+}
+
+x <- 0:3
+y <- polinomio(x)
+graf_func1 <- data.frame(x,y)
+ggplot(graf_func1, aes(x,y))+
+  geom_line(colour="red") + 
+  geom_point( size=2, shape=21, fill="white", colour="red") + 
+  geom_vline(xintercept=0)+
+  geom_hline(yintercept=0)+
+  theme_minimal()
